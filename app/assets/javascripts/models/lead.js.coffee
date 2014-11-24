@@ -9,3 +9,7 @@ App.Lead = DS.Model.extend
   fullName: ( ->
       @get('firstName') + ' ' + @get('lastName')
   ).property('firstName', 'lastName')
+
+App.Lead.reopenClass
+  valid: (fields) ->
+    fields.firstName and fields.lastName
